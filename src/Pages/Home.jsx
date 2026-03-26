@@ -76,7 +76,7 @@ const TYPING_SPEED = 100;
 const ERASING_SPEED = 50;
 const PAUSE_DURATION = 2000;
 const WORDS = ["Problem Solver", "Tech Enthusiast"];
-const TECH_STACK = ["C++", "Javascript", "HTML", "CSS", "Java", "Python"];
+const TECH_STACK = ["JavaScript", "HTML", "CSS", "ReactJS"];
 const SOCIAL_LINKS = [
   { icon: Github, link: "https://github.com/yabdelsa", label: "GitHub Profile" },
   { icon: Linkedin, link: "http://www.linkedin.com/in/yabdelsa", label: "LinkedIn Profile" },
