@@ -187,7 +187,7 @@ const Home = () => {
                   <p className="text-base md:text-lg text-gray-400 max-w-xl leading-relaxed font-light"
                     data-aos="fade-up"
                     data-aos-delay="1000">
-                    Building innovative, functional, and user-friendly websites for modern digital solutions.
+                    Building innovative, functional, and user-friendly applications for modern digital solutions.
                   </p>
 
                   {/* Tech Stack */}
