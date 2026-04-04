@@ -1,5 +1,5 @@
 import React, { useEffect, memo, useMemo } from "react"
-import { FileText, Code, Award, Globe, ArrowUpRight, Sparkles } from "lucide-react"
+import { FileText, Code, Award, Globe, ArrowUpRight, Sparkles, BookOpen } from "lucide-react"
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 
@@ -104,19 +104,12 @@ const StatCard = memo(({ icon: Icon, color, value, label, description, animation
 ));
 
 const AboutPage = () => {
-  const { totalProjects, totalCertificates, YearExperience } = useMemo(() => {
+  const { totalProjects, totalCertificates } = useMemo(() => {
     const storedProjects = JSON.parse(localStorage.getItem("projects") || "[]");
     const storedCertificates = JSON.parse(localStorage.getItem("certificates") || "[]");
-
-    const startDate = new Date("2024-09-01");
-    const today = new Date();
-    const experience = today.getFullYear() - startDate.getFullYear() -
-      (today < new Date(today.getFullYear(), startDate.getMonth(), startDate.getDate()) ? 1 : 0);
-
     return {
       totalProjects: storedProjects.length,
       totalCertificates: storedCertificates.length,
-      YearExperience: experience
     };
   }, []);
 
@@ -145,6 +138,7 @@ const AboutPage = () => {
       label: "Total Projects",
       description: "Innovative solutions crafted",
       animation: "fade-right",
+      href: "#Portofolio",
     },
     {
       icon: Award,
@@ -153,6 +147,16 @@ const AboutPage = () => {
       label: "Certificates",
       description: "Professional skills validated",
       animation: "fade-up",
+      href: "#Portofolio",
+    },
+    {
+      icon: BookOpen,
+      color: "from-[#6366f1] to-[#a855f7]",
+      value: "Docs",
+      label: "Documentation",
+      description: "In-depth project breakdowns",
+      animation: "fade-left",
+      href: "#Documentation",
     },
   ], [totalProjects, totalCertificates]);
 
@@ -198,7 +202,6 @@ const AboutPage = () => {
               creative problem-solving.
             </p>
 
-            {/* Quote Section */}
             <div
               className="relative bg-gradient-to-br from-[#6366f1]/5 via-transparent to-[#a855f7]/5 border border-gradient-to-r border-[#6366f1]/30 rounded-2xl p-4 my-6 backdrop-blur-md shadow-2xl overflow-hidden"
               data-aos="fade-up"
@@ -241,13 +244,13 @@ const AboutPage = () => {
           <ProfileImage />
         </div>
 
-        <a href="#Portofolio">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16 cursor-pointer">
-            {statsData.map((stat) => (
-              <StatCard key={stat.label} {...stat} />
-            ))}
-          </div>
-        </a>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16">
+          {statsData.map((stat) => (
+            <a key={stat.label} href={stat.href}>
+              <StatCard {...stat} />
+            </a>
+          ))}
+        </div>
       </div>
 
       <style jsx>{`
