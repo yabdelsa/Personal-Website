@@ -152,7 +152,7 @@ const AboutPage = () => {
     {
       icon: BookOpen,
       color: "from-[#6366f1] to-[#a855f7]",
-      value: "Docs",
+      value: "DOCS",
       label: "Documentation",
       description: "In-depth project breakdowns",
       animation: "fade-left",
